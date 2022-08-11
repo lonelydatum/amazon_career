@@ -20,11 +20,14 @@
 
 
     const BB = { type: "BB", title: "300x250" }
+    const SS = { type: "SS", title: "160x600" }
     const LB = { type: "LB", title: "728x90" }
     const M300 = { type: {w:300,h:50}, title: "300x50" }
     const M320 = { type: {w:320,h:50}, title: "320x50" }
     const DBB = { type: "DBB", title: "300x600" }
-    const BIG = { type: {w:1080,h:1080}, title: "1080x1080" }
+
+    const BIG1 = { type: {w:970,h:90}, title: "970x90" }
+    const BIG2 = { type: {w:970,h:250}, title: "970x250" }
 
 
 
@@ -36,36 +39,31 @@
             {
                 title:"Text 1",
                 list:[
+                    { ...SS, path: "" },
                      { ...BB, path: "text1_300x250" },
+                    { ...DBB, path: "" },
+                    { ...LB, path: "" },                    
+                    { ...BIG1, path: "" },
+                    { ...BIG2, path: "" },
+                    
+
 
                 ]
             }  ,
-           {
+            {
                 title:"Text 2",
                 list:[
-                                          
+                    { ...SS, path: "" },
+                     { ...BB, path: "" },
+                    { ...DBB, path: "" },
+                    { ...LB, path: "" },                    
+                    { ...BIG1, path: "" },
+                    { ...BIG2, path: "" },
+                    
+
+
                 ]
             }  ,
-
-           
-            //  {
-            //     title:"English",
-            //     list:[
-
-            //          { ...BB, path: "ia_en_300x250" },                     
-            //          { ...DBB, path: "ia_en_300x600" },                                 
-            //          { ...BIG, path: "ia_en_1080x1080" }
-            //     ]
-            // },
-            // {
-            //     title:"French",
-            //     list:[
-
-            //          { ...BB, path: "ia_fr_300x250" },                     
-            //          { ...DBB, path: "ia_fr_300x600" },                                 
-            //          { ...BIG, path: "ia_fr_1080x1080" }
-            //     ]
-            // },
            
         ]
     }
