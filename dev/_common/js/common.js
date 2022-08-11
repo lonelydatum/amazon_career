@@ -26,7 +26,12 @@ gsap.defaults({
 
 
 
-
+function text2(){
+	const tl = new TimelineMax({})
+	tl.set(".frame1", {opacity:1})
+	tl.from(".t1", {duration:.3, opacity:0}, "+=.4")
+	tl.from(".t2", {duration:.3, opacity:0}, "+=2")
+}
 
 function text(data){
 	const {id, read} = data
@@ -44,10 +49,7 @@ function text(data){
 
 
 function start(){
-	const tl = new TimelineMax({
-
-	})
-
+	const tl = new TimelineMax({})
 	tl.set(".frame1", {opacity:1})
 
 	tl.add(text(data.t1), 0)
@@ -70,4 +72,4 @@ function start(){
 }
 
 
-export {start}
+export {start, text2}

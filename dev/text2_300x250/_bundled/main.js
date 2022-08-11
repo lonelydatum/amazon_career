@@ -154,7 +154,7 @@ exports.canvasMaker = canvasMaker;
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
 
-(0, _commonJsCommonJs.start)();
+(0, _commonJsCommonJs.text2)();
 
 },{"../../_common/js/common.js":1}]},{},[3])
 

@@ -31,6 +31,13 @@ gsap.defaults({
 	ease: "power2.out"
 });
 
+function text2() {
+	var tl = new TimelineMax({});
+	tl.set(".frame1", { opacity: 1 });
+	tl.from(".t1", { duration: .3, opacity: 0 }, "+=.4");
+	tl.from(".t2", { duration: .3, opacity: 0 }, "+=2");
+}
+
 function text(data) {
 	var id = data.id;
 	var read = data.read;
@@ -48,7 +55,6 @@ function text(data) {
 
 function start() {
 	var tl = new TimelineMax({});
-
 	tl.set(".frame1", { opacity: 1 });
 
 	tl.add(text(data.t1), 0);
@@ -69,6 +75,7 @@ function start() {
 }
 
 exports.start = start;
+exports.text2 = text2;
 
 },{"./mask.js":2}],2:[function(require,module,exports){
 "use strict";
