@@ -53,7 +53,16 @@ function start() {
 
 	tl.add(text(data.t1), 0);
 	tl.add(text(data.t2), "+=.6");
-	tl.add(text(data.t3), "+=.6");
+	tl.add("t3", "+=.6");
+	tl.add(text(data.t3), "t3");
+	var version = globalBanner.name.split("-");
+	if (version.length === 2) {
+
+		if (version[1] === "b") {
+			tl.from("#legal", { duration: .3, opacity: 0 }, "t3");
+		}
+	}
+
 	tl.add(text(data.t4), "+=.6");
 
 	tl.from("#t5", { duration: .3, opacity: 0 }, "+=.6");
