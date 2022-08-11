@@ -7,72 +7,29 @@
     <meta charset="utf-8" />
     <title></title>
     <style>
-        a{
-            color:#AAA;
+        html, body{
+            padding:  0;
+            margin:  0;
+            height:  100%;
+        }
+        .logo{
+            padding:  10px;
+            width:  100%;
+            background-color: black !important;
+        }
+        img{
+            width:  150px;
+            
         }
     </style>
-    <script>
-
-
-
-
-    const BB = { type: "BB", title: "300x250" }
-    const LB = { type: "LB", title: "728x90" }
-    const M300 = { type: {w:300,h:50}, title: "300x50" }
-    const M320 = { type: {w:320,h:50}, title: "320x50" }
-    const DBB = { type: "DBB", title: "300x600" }
-    const BIG = { type: {w:1080,h:1080}, title: "1080x1080" }
-
-
-
-
-
-    var data = {
-        title: "Amazon",
-        banners:[           
-            {
-                title:"Text 1",
-                list:[
-                     { ...BB, path: "text1_300x250" },
-                     
-                ]
-            }  ,
-           {
-                title:"Text 2",
-                list:[
-                                          
-                ]
-            }  ,
-
-           
-            //  {
-            //     title:"English",
-            //     list:[
-
-            //          { ...BB, path: "ia_en_300x250" },                     
-            //          { ...DBB, path: "ia_en_300x600" },                                 
-            //          { ...BIG, path: "ia_en_1080x1080" }
-            //     ]
-            // },
-            // {
-            //     title:"French",
-            //     list:[
-
-            //          { ...BB, path: "ia_fr_300x250" },                     
-            //          { ...DBB, path: "ia_fr_300x600" },                                 
-            //          { ...BIG, path: "ia_fr_1080x1080" }
-            //     ]
-            // },
-           
-        ]
-    }
-
-    </script>
 </head>
 <body>
+    <div class="logo">
+        <img src="https://images.squarespace-cdn.com/content/5dfa6ac3bd5e4d45883a030b/16a7de81-44c7-4ae3-8f02-fff12f9411a2/Unreasonable+Studios+Lockup+White.png?format=1000w&content-type=image%2Fpng"/>
+    </div>
+    
+<iframe src="framer.html" style="width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>
 
-<script src="vendor.bundle.js"> </script>
-<script src="bundle.js"> </script>
 
 </body>
 </html>
