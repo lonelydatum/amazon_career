@@ -16,12 +16,19 @@
             height:  100%;
         }
         .logo{
-            padding:  10px;
+            display:  flex;
+            align-items: center;
+            padding-left: 10px;
             width:  100%;
+            height:  50px;
             background-color: black !important;
         }
-        img{
-            width:  150px;
+        iframe{
+            width:  100%;
+            height:  calc(100% - 55px);
+        }
+        .logo img{
+            height:  30px;
             
         }
     </style>
@@ -32,7 +39,7 @@
         <img src="https://images.squarespace-cdn.com/content/5dfa6ac3bd5e4d45883a030b/16a7de81-44c7-4ae3-8f02-fff12f9411a2/Unreasonable+Studios+Lockup+White.png?format=1000w&content-type=image%2Fpng"/>
     </div>
     
-<iframe id="frame"  style="width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>
+<iframe id="frame"  style="border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>
 
 
 </body>
