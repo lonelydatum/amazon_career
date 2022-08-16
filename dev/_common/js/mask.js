@@ -1,5 +1,5 @@
 
-function canvasMaker(maskFX="maskFX", duration= 2){
+function canvasMaker(maskFX="maskFX", duration=.38, paddingRight=55){
 	
 	const tl = new TimelineMax()
 
@@ -8,12 +8,15 @@ function canvasMaker(maskFX="maskFX", duration= 2){
 	const el = document.getElementById(maskFX)
 	const canvas = el.querySelector("canvas")
 
+
 	const img = el.querySelector("img")
 
 	const context = canvas.getContext("2d")
 
-
+	canvas.width = img.width
+	canvas.height = img.height
 	gsap.set(img, {display: "none"})
+	console.log(img.width);
 
 	context.drawImage(img, 0, 0, img.width, img.height, 0,0, img.width, img.height);
 	
@@ -22,17 +25,17 @@ function canvasMaker(maskFX="maskFX", duration= 2){
 	
 	context.globalCompositeOperation = "destination-out";
 	let obj = {wow:0}
-	tl.to(obj, {duration, wow:1,  onUpdate:()=>{
+	tl.to(obj, {duration, ease:"power2.out", wow:1,  onUpdate:()=>{
 		
-		const gradient = context.createLinearGradient(0, 0, img.width, 0);	
+		const gradient = context.createLinearGradient(0, 0, img.width-paddingRight, 0);	
 		gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
 		gradient.addColorStop(obj.wow, "rgba(255, 255, 255, 0)");
 		context.fillStyle = gradient;
 		context.fillRect(0, 0, img.width, img.height);
 	}})
-	tl.set(el, {opacity:0})
+	tl.to(el, {duration:.2, opacity:0})
 
-
+	return tl
 
 }
 

@@ -1,9 +1,4 @@
-import {start} from '../../_common/js/common.js'
+import {text1} from '../../_common/js/common.js'
 
 
-
-start()
-
-
-
-
+text1(.4, 25)

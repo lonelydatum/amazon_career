@@ -137,7 +137,7 @@ body {
 }
 
 #banner {
-  background-color: white;
+  background-color: #232f3e;
   width: 300px;
   height: 250px;
   overflow: hidden;
@@ -203,7 +203,6 @@ canvas, .text, .frame, .outline, img {
 #banner {
   width: 300px;
   height: 250px;
-  background-color: #232f3e;
 }
 
 /*# sourceMappingURL=main.css.map */

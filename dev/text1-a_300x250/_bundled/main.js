@@ -9,13 +9,6 @@ var _maskJs = require('./mask.js');
 
 var banner = document.getElementById('banner');
 
-var data = {
-	t1: { id: "t1", read: 1.5 },
-	t2: { id: "t2", read: 1.8 },
-	t3: { id: "t3", read: 2.5 },
-	t4: { id: "t4", read: 2.5 }
-};
-
 gsap.defaults({
 	ease: "power2.out"
 });
@@ -38,28 +31,39 @@ function text2() {
 	tl.from(".t2", { duration: .3, opacity: 0 }, "+=2");
 }
 
-function text(data) {
-	var id = data.id;
-	var read = data.read;
+function text1() {
+	var maskTime = arguments.length <= 0 || arguments[0] === undefined ? .38 : arguments[0];
+	var paddingRight = arguments.length <= 1 || arguments[1] === undefined ? 30 : arguments[1];
 
-	var tl = new TimelineMax();
-	tl.set('#' + id + ' img', { display: "block" });
-	tl.fromTo('#' + id, { duration: .5, opacity: 0 }, { opacity: 1 });
+	function text(data) {
+		var id = data.id;
+		var read = data.read;
 
-	tl.add(function () {
-		(0, _maskJs.canvasMaker)(id, .38);
-	}, '+=' + read);
+		var tl = new TimelineMax();
+		tl.set('#' + id + ' img', { display: "block" });
+		tl.fromTo('#' + id, { duration: .5, opacity: 0 }, { opacity: 1 });
 
-	return tl;
-}
+		tl.add(function () {
+			(0, _maskJs.canvasMaker)(id, maskTime, paddingRight);
+		}, '+=' + read);
 
-function start() {
+		return tl;
+	}
+
+	var data = {
+		t1: { id: "t1", read: 1.5 },
+		t2: { id: "t2", read: 1.8 },
+		t3: { id: "t3", read: 2.5 },
+		t4: { id: "t4", read: 2.5 }
+	};
 	var tl = new TimelineMax({});
 	tl.set(".frame1", { opacity: 1 });
 
+	var maskTimePadding = .2;
+
 	tl.add(text(data.t1), 0);
-	tl.add(text(data.t2), "+=.6");
-	tl.add("t3", "+=.6");
+	tl.add(text(data.t2), '+=' + (maskTime + maskTimePadding));
+	tl.add("t3", '+=' + (maskTime + maskTimePadding));
 	tl.add(text(data.t3), "t3");
 	var version = globalBanner.name.split("-");
 	if (version.length === 2) {
@@ -69,13 +73,14 @@ function start() {
 		}
 	}
 
-	tl.add(text(data.t4), "+=.6");
+	tl.add(text(data.t4), '+=' + (maskTime + maskTimePadding));
 
-	tl.from("#t5", { duration: .3, opacity: 0 }, "+=.6");
+	tl.from("#t5", { duration: .3, opacity: 0 }, '+=' + (maskTime + maskTimePadding));
 }
 
-exports.start = start;
+exports.text1 = text1;
 exports.text2 = text2;
+exports.size = size;
 
 },{"./mask.js":2}],2:[function(require,module,exports){
 "use strict";
@@ -86,7 +91,8 @@ Object.defineProperty(exports, "__esModule", {
 
 function canvasMaker() {
 	var maskFX = arguments.length <= 0 || arguments[0] === undefined ? "maskFX" : arguments[0];
-	var duration = arguments.length <= 1 || arguments[1] === undefined ? 2 : arguments[1];
+	var duration = arguments.length <= 1 || arguments[1] === undefined ? .38 : arguments[1];
+	var paddingRight = arguments.length <= 2 || arguments[2] === undefined ? 55 : arguments[2];
 
 	var tl = new TimelineMax();
 
@@ -97,7 +103,10 @@ function canvasMaker() {
 
 	var context = canvas.getContext("2d");
 
+	canvas.width = img.width;
+	canvas.height = img.height;
 	gsap.set(img, { display: "none" });
+	console.log(img.width);
 
 	context.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
 
@@ -105,15 +114,17 @@ function canvasMaker() {
 
 	context.globalCompositeOperation = "destination-out";
 	var obj = { wow: 0 };
-	tl.to(obj, { duration: duration, wow: 1, onUpdate: function onUpdate() {
+	tl.to(obj, { duration: duration, ease: "power2.out", wow: 1, onUpdate: function onUpdate() {
 
-			var gradient = context.createLinearGradient(0, 0, img.width, 0);
+			var gradient = context.createLinearGradient(0, 0, img.width - paddingRight, 0);
 			gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
 			gradient.addColorStop(obj.wow, "rgba(255, 255, 255, 0)");
 			context.fillStyle = gradient;
 			context.fillRect(0, 0, img.width, img.height);
 		} });
-	tl.set(el, { opacity: 0 });
+	tl.to(el, { duration: .2, opacity: 0 });
+
+	return tl;
 }
 
 // function svgMaker(){
@@ -154,7 +165,7 @@ exports.canvasMaker = canvasMaker;
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
 
-(0, _commonJsCommonJs.start)();
+(0, _commonJsCommonJs.text1)(.4, 25);
 
 },{"../../_common/js/common.js":1}]},{},[3])
 
