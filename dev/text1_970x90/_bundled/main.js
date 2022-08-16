@@ -35,17 +35,24 @@ function text1() {
 	var maskTime = arguments.length <= 0 || arguments[0] === undefined ? .38 : arguments[0];
 	var paddingRight = arguments.length <= 1 || arguments[1] === undefined ? 30 : arguments[1];
 
+	// function text(data){
+	// 	const {id, read} = data
+	// 	const tl = new TimelineMax()
+	// 	tl.set(`#${id} img`, {display:"block"})
+	// 	tl.fromTo(`#${id}`, {duration:.5, opacity:0}, {opacity:1})
+
+	// 	tl.add( ()=>{
+	// 		canvasMaker(id, maskTime, paddingRight)
+	// 	}, `+=${read}`)
+
+	// 	return tl
+	// }
+
 	function text(data) {
 		var id = data.id;
 		var read = data.read;
 
 		var tl = new TimelineMax();
-		tl.set('#' + id + ' img', { display: "block" });
-		tl.fromTo('#' + id, { duration: .5, opacity: 0 }, { opacity: 1 });
-
-		tl.add(function () {
-			(0, _maskJs.canvasMaker)(id, maskTime, paddingRight);
-		}, '+=' + read);
 
 		return tl;
 	}
@@ -54,28 +61,38 @@ function text1() {
 		t1: { id: "t1", read: 1.5 },
 		t2: { id: "t2", read: 1.8 },
 		t3: { id: "t3", read: 2.5 },
-		t4: { id: "t4", read: 2.5 }
+		t4: { id: "t4", read: 2.8 }
 	};
 	var tl = new TimelineMax({});
 	tl.set(".frame1", { opacity: 1 });
 
 	var maskTimePadding = .2;
+	tl.from('#' + data.t1.id + ' img', { duration: .3, opacity: 0 });
+	tl.to('#' + data.t1.id + ' img', { duration: .3, opacity: 0 }, '+=' + data.t1.read);
 
-	tl.add(text(data.t1), 0);
-	tl.add(text(data.t2), '+=' + (maskTime + maskTimePadding));
-	tl.add("t3", '+=' + (maskTime + maskTimePadding));
-	tl.add(text(data.t3), "t3");
-	var version = globalBanner.name.split("-");
-	if (version.length === 2) {
+	tl.from('#' + data.t2.id + ' img', { duration: .3, opacity: 0 });
+	tl.to('#' + data.t2.id + ' img', { duration: .3, opacity: 0 }, '+=' + data.t2.read);
 
-		if (version[1] === "b") {
-			tl.from("#legal", { duration: .3, opacity: 0 }, "t3");
-		}
-	}
+	tl.from('#' + data.t3.id + ' img', { duration: .3, opacity: 0 });
+	tl.to('#' + data.t3.id + ' img', { duration: .3, opacity: 0 }, '+=' + data.t3.read);
 
-	tl.add(text(data.t4), '+=' + (maskTime + maskTimePadding));
+	tl.from('#' + data.t4.id + ' img', { duration: .3, opacity: 0 });
+	tl.to('#' + data.t4.id + ' img', { duration: .3, opacity: 0 }, '+=' + data.t4.read);
+	// tl.add(text(data.t1), 0)
+	// tl.add(text(data.t2), `+=${maskTime+maskTimePadding}`)
+	// tl.add("t3", `+=${maskTime+maskTimePadding}`)
+	// tl.add(text(data.t3), "t3")
+	// const version = globalBanner.name.split("-")
+	// if(version.length===2){
 
-	tl.from("#t5", { duration: .3, opacity: 0 }, '+=' + (maskTime + maskTimePadding));
+	// 	if(version[1]==="b"){
+	// 		tl.from("#legal", {duration:.3, opacity:0}, "t3")
+	// 	}
+	// }
+
+	// tl.add(text(data.t4), `+=${maskTime+maskTimePadding}`)
+
+	tl.to('#' + data.t1.id + ' img', { duration: .3, opacity: 1 });
 }
 
 exports.text1 = text1;
