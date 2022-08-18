@@ -94,5 +94,13 @@ function text1(maskTime=.38, paddingRight=30){
 
 }
 
+function photo(){
+	const tl = new TimelineMax({})
+	tl.set(".frame1", {opacity:1})
+	// tl.set(".photo", {x:}, "+=.4")
+	tl.from(".photo", {duration:2, scale:.56})
+	tl.from(".text", {duration:.3, opacity:0}, "-=.2")
+}
 
-export {text1, text2, size}
+
+export {text1, text2, size, photo}

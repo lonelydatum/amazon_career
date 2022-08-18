@@ -95,9 +95,18 @@ function text1() {
 	tl.to('#' + data.t1.id + ' img', { duration: .3, opacity: 1 });
 }
 
+function photo() {
+	var tl = new TimelineMax({});
+	tl.set(".frame1", { opacity: 1 });
+	// tl.set(".photo", {x:}, "+=.4")
+	tl.from(".photo", { duration: 2, scale: .56 });
+	tl.from(".text", { duration: .3, opacity: 0 }, "-=.2");
+}
+
 exports.text1 = text1;
 exports.text2 = text2;
 exports.size = size;
+exports.photo = photo;
 
 },{"./mask.js":2}],2:[function(require,module,exports){
 "use strict";
