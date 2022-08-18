@@ -100,7 +100,7 @@ function photo() {
 	tl.set(".frame1", { opacity: 1 });
 	// tl.set(".photo", {x:}, "+=.4")
 	tl.from(".photo", { duration: 2, scale: .56 });
-	tl.from(".text", { duration: .3, opacity: 0 }, "-=.2");
+	tl.from(".text", { duration: .3, opacity: 0 }, "-=.6");
 }
 
 exports.text1 = text1;
