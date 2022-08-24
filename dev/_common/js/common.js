@@ -2,9 +2,6 @@ const banner = document.getElementById('banner')
 import {canvasMaker} from './mask.js'
 
 
-gsap.defaults({
-  ease: "power2.out"
-});
 
 
 
@@ -15,10 +12,11 @@ const size = {
 	hh:banner.offsetHeight*2
 }
 
+
+
 gsap.defaults({
   ease: "power2.out"
 });
-
 
 
 function text2(){

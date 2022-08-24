@@ -9,10 +9,6 @@ var _maskJs = require('./mask.js');
 
 var banner = document.getElementById('banner');
 
-gsap.defaults({
-	ease: "power2.out"
-});
-
 var size = {
 	w: banner.offsetWidth,
 	h: banner.offsetHeight,
