@@ -99,8 +99,8 @@ function photo() {
 	var tl = new TimelineMax({});
 	tl.set(".frame1", { opacity: 1 });
 	// tl.set(".photo", {x:}, "+=.4")
-	tl.from(".photo", { duration: 2, scale: .56 });
-	tl.from(".text", { duration: .3, opacity: 0 }, "-=.6");
+	tl.from(".photo", { duration: 3, scale: .56 });
+	// tl.from(".text", {duration:.3, opacity:0}, "-=.6")
 }
 
 exports.text1 = text1;
