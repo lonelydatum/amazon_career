@@ -1,0 +1,19 @@
+@import '../../../_common/styles/common.scss';
+
+
+#banner{
+ width: 160px;
+ height: 600px;
+ background-color: #232f3e;
+}
+
+#overflow{
+    @include pos(0, 133);
+    width: 160px;
+    height: 467px;    
+}
+.photo{
+    transform-origin: 50% 50%;
+    transform: translate(-80px, -233px) scale(0.58) ;
+}
+

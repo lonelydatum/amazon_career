@@ -200,6 +200,10 @@ canvas, .text, .frame, .outline, img {
   opacity: 1;
 }
 
+#overflow {
+  overflow: hidden;
+}
+
 #banner {
   width: 728px;
   height: 90px;
