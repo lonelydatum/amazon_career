@@ -2,13 +2,20 @@
 
 
 #banner{
- width: 300px;
+ width: 970px;
  height: 250px;
  background-color: #232f3e;
 }
 
+
+
+#overflow{
+    @include pos(505, 0);
+    width: 465px;
+    height: 250px;    
+}
 .photo{
     transform-origin: 50% 50%;
-    transform: scale(0.5) translate(-300px, -250px);
+    transform: translate(-234px, -125px) scale(0.55);
 }
 

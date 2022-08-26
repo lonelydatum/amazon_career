@@ -206,7 +206,7 @@ canvas, .text, .frame, .outline, img {
 
 #banner {
   width: 300px;
-  height: 250px;
+  height: 600px;
   background-color: #232f3e;
 }
 
@@ -214,9 +214,9 @@ canvas, .text, .frame, .outline, img {
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  -webkit-transform: scale(0.5) translate(-300px, -250px);
-  -ms-transform: scale(0.5) translate(-300px, -250px);
-  transform: scale(0.5) translate(-300px, -250px);
+  -webkit-transform: translate(-150px, -300px) scale(0.55);
+  -ms-transform: translate(-150px, -300px) scale(0.55);
+  transform: translate(-150px, -300px) scale(0.55);
 }
 
 /*# sourceMappingURL=main.css.map */

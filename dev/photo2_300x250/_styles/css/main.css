@@ -214,9 +214,9 @@ canvas, .text, .frame, .outline, img {
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  -webkit-transform: scale(0.5) translate(-300px, -250px);
-  -ms-transform: scale(0.5) translate(-300px, -250px);
-  transform: scale(0.5) translate(-300px, -250px);
+  -webkit-transform: translate(-150px, -125px) scale(0.6);
+  -ms-transform: translate(-150px, -125px) scale(0.6);
+  transform: translate(-150px, -125px) scale(0.6);
 }
 
 /*# sourceMappingURL=main.css.map */

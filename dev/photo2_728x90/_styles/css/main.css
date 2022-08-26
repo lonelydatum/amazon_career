@@ -205,18 +205,31 @@ canvas, .text, .frame, .outline, img {
 }
 
 #banner {
-  width: 300px;
-  height: 250px;
+  width: 728px;
+  height: 90px;
   background-color: #232f3e;
+}
+
+#overflow {
+  -webkit-transform: translate(383px, 0px);
+  -ms-transform: translate(383px, 0px);
+  transform: translate(383px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+  width: 345px;
+  height: 90px;
 }
 
 .photo {
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  -webkit-transform: scale(0.5) translate(-300px, -250px);
-  -ms-transform: scale(0.5) translate(-300px, -250px);
-  transform: scale(0.5) translate(-300px, -250px);
+  -webkit-transform: translate(-172px, -45px) scale(0.58);
+  -ms-transform: translate(-172px, -45px) scale(0.58);
+  transform: translate(-172px, -45px) scale(0.58);
 }
 
 /*# sourceMappingURL=main.css.map */
